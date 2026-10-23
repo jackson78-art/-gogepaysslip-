@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="e9TuoSA8yB48BRfunw6lDSGiIC_DfETXaoiFiTaq6qE" />  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how to access GoG ePay Services, log in to the GoG payslip portal, register, check your ePayslip, download salary statements, and recover your account.">
+  <title>GoG ePay Services &amp; GoG Payslip – Login, ePayslip &amp; Portal</title>
+  <style>
+    :root{--green:#008653;--green-dark:#006c43;--green-bright:#00c985;--black:#050706;--ink:#17221c;--muted:#647168;--line:#e3ebe6;--soft:#f4f9f6;--white:#fff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.7;background:#fff}
+    a{color:var(--green);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .site-header{background:#fff;border-bottom:3px solid var(--green);position:sticky;top:0;z-index:20}
+    .nav-wrap{max-width:1240px;min-height:78px;margin:auto;padding:10px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:10px;color:var(--green-dark);font-weight:800;line-height:1.1}
+    .brand-mark{width:48px;height:48px;border:2px solid #d7e8dd;border-radius:50%;display:grid;place-items:center;color:var(--green);font-size:13px;font-weight:900;background:#f5fbf7}
+    .brand-name{font-size:14px;letter-spacing:.4px}
+    .brand-name span{display:block;font-size:10px;letter-spacing:2px;margin-top:5px}
+    .nav-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+    .nav-links a{font-size:15px;font-style:italic;font-weight:700;color:var(--green-dark);white-space:nowrap}
+    .nav-links a.active{border-bottom:2px solid var(--green);padding-bottom:8px}
+    .hero{background:#030504;color:#fff;overflow:hidden}
+    .hero-inner{max-width:1240px;min-height:490px;margin:auto;padding:65px 28px;display:grid;grid-template-columns:1.35fr .9fr;align-items:center;gap:36px}
+    .eyebrow{display:inline-block;color:#8bf0bf;font-size:12px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:14px}
+    h1{font-size:clamp(32px,4vw,46px);line-height:1.28;letter-spacing:-.7px;margin:0 0 22px;font-weight:800}
+    h1 span{color:var(--green-bright)}
+    .hero p{font-size:16px;max-width:760px;color:#f1f5f2;margin:0 0 17px}
+    .hero p a{color:#16d28a;font-weight:700;text-decoration:underline}
+    .btn{display:inline-flex;align-items:center;gap:12px;margin-top:14px;padding:13px 25px;border-radius:999px;background:var(--green);color:#fff;font-weight:800;box-shadow:0 8px 22px #00865330;transition:.2s}
+    .btn:hover{background:#00a96a;color:#fff;text-decoration:none;transform:translateY(-1px)}
+    .hero-art{min-height:300px;display:grid;place-items:center;position:relative}
+    .device-card{width:min(100%,390px);padding:22px;border:1px solid #164a38;border-radius:24px;background:linear-gradient(145deg,#10271e,#030807 70%);box-shadow:0 0 55px #00865335;transform:rotate(-1deg)}
+    .device-top{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:20px;margin-bottom:20px}
+    .g-mark{background:#fff;color:var(--green);width:31px;height:31px;border-radius:50%;display:grid;place-items:center;font-weight:900}
+    .mock-input{background:#fff;color:#849087;border-radius:6px;padding:9px 12px;font-size:12px;margin:9px 0}
+    .mock-login{background:var(--green);color:#fff;text-align:center;padding:9px;border-radius:6px;font-size:12px;font-weight:800;margin-top:13px}
+    .mock-foot{display:flex;justify-content:space-between;font-size:10px;color:#a9e9c9;margin-top:10px}
+    .phone{position:absolute;right:-3px;bottom:2px;width:105px;height:195px;border:5px solid #1e2924;border-radius:20px;background:#f8fffb;padding:13px 7px;color:var(--green-dark);box-shadow:0 12px 30px #0009;font-size:10px}
+    .phone-notch{height:5px;width:32px;border-radius:9px;background:#273a30;margin:-7px auto 12px}
+    .phone-title{font-weight:900;font-size:11px;margin-bottom:10px}
+    .phone-row{padding:7px 3px;border-bottom:1px solid #dfe9e2}
+    .content-layout{max-width:1160px;margin:0 auto;padding:58px 24px 80px;display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:38px;align-items:start}
+    article{min-width:0}
+    .intro-note{border-left:4px solid var(--green);padding:17px 20px;background:var(--soft);border-radius:0 12px 12px 0;margin-bottom:30px}
+    .intro-note p{margin:0}
+    h2{font-size:29px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 14px;color:#10271c}
+    h3{font-size:20px;line-height:1.4;margin:26px 0 9px;color:#163d2b}
+    p{margin:0 0 16px}
+    .step-list{padding-left:24px}
+    .step-list li{padding:5px 0 5px 5px}
+    .feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0}
+    .feature{padding:19px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 5px 18px #163d2b08}
+    .feature strong{display:block;color:var(--green-dark);margin-bottom:5px}
+    .feature p{font-size:14px;color:#56645b;margin:0}
+    .callout{background:#effaf3;border:1px solid #d1eddd;padding:18px 20px;border-radius:12px;margin:24px 0}
+    .callout strong{color:var(--green-dark)}
+    .toc{position:sticky;top:105px;border:1px solid var(--line);border-radius:16px;padding:22px;background:#fbfdfb}
+    .toc h3{font-size:18px;margin:0 0 12px}
+    .toc a{display:block;padding:7px 0;font-size:13px;color:#43594b;border-bottom:1px solid #edf2ee}
+    .toc a:last-child{border-bottom:0}
+    .faq-item{padding:18px 0;border-bottom:1px solid var(--line)}
+    .faq-item h3{margin:0 0 7px;font-size:17px}
+    .faq-item p{margin:0;color:#4c5b51}
+    .site-footer{background:#030504;color:#eaf5ee;border-top:4px solid var(--green);padding:40px 24px 22px}
+    .footer-inner{max-width:1160px;margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px}
+    .footer-brand{font-size:20px;font-weight:800;color:#fff}
+    .footer-brand span{color:var(--green-bright)}
+    .site-footer p{color:#b6c7bc;font-size:14px;margin-top:12px}
+    .site-footer h3{color:#fff;font-size:15px;margin:0 0 12px}
+    .footer-links a{display:block;color:#cce6d6;font-size:14px;margin:8px 0}
+    .copyright{max-width:1160px;margin:28px auto 0;border-top:1px solid #26372d;padding-top:18px;color:#9eb2a4;font-size:12px}
+    @media(max-width:900px){.nav-wrap{align-items:flex-start;flex-direction:column;gap:12px}.nav-links{gap:12px 18px}.hero-inner{grid-template-columns:1fr;padding-top:48px;padding-bottom:50px}.hero-art{min-height:260px;max-width:460px;width:100%;margin:0 auto}.content-layout{grid-template-columns:1fr}.toc{position:static;grid-row:1}.footer-inner{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.nav-wrap{padding:12px 18px}.nav-links{gap:9px 14px}.nav-links a{font-size:13px}.hero-inner{padding:42px 20px}.hero-art{min-height:235px}.device-card{width:85%;padding:17px}.phone{right:0;width:89px;height:170px}.content-layout{padding:36px 19px 55px}.feature-grid{grid-template-columns:1fr}h2{font-size:25px}.footer-inner{grid-template-columns:1fr}.brand-mark{width:42px;height:42px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="GoG ePayslip home">
+        <span class="brand-mark">GoG</span>
+        <span class="brand-name">E-PAYSLIP<span>GHANA</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="active" href="#epay">GoG ePay</a>
+        <a href="#recovery">Reset Password</a>
+        <a href="#loan">EPayslip Loan</a>
+        <a href="#salary">Salary and Wages</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="epay">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow">Government of Ghana · Employee guide</span>
+          <h1>GoG ePay Services &amp; GoG Payslip – <span>Login, ePayslip &amp; Portal</span></h1>
+          <p>If you are a Government of Ghana employee looking for your GoG payslip, ePayslip, or GoG ePay Services login, the electronic payslip system offers digital access to payroll information.</p>
+          <p>Eligible employees can <a href="http://gogepaysslip.com/">http://gogepaysslip.com/</a>
+ instead of relying only on a printed salary slip. This guide explains login, registration, payslip access, account recovery, and common troubleshooting steps.</p>
+          <a class="btn" href="#login">Access Your ePayslip <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a payslip portal on a laptop and phone">
+          <div class="device-card">
+            <div class="device-top"><span class="g-mark">G</span> GoG <span style="color:#15d38c">ePay</span></div>
+            <div class="mock-input">▣ &nbsp; Username / Employee number</div>
+            <div class="mock-input">▣ &nbsp; Password</div>
+            <div class="mock-login">Login</div>
+            <div class="mock-foot"><span>Forgot password?</span><span>Register</span></div>
+          </div>
+          <div class="phone">
+            <div class="phone-notch"></div><div class="phone-title">GoG ePay</div>
+            <div class="phone-row">▣ &nbsp; ePayslip</div><div class="phone-row">▤ &nbsp; View Payslip</div><div class="phone-row">⇩ &nbsp; Download Payslip</div><div class="phone-row">◎ &nbsp; Account Recovery</div><div class="phone-row">? &nbsp; Help &amp; Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-layout">
+      <article>
+        <div class="intro-note"><p><strong>Important:</strong> Use the current portal address published by CAGD and verify the website before entering employee details, Ghana Card information, passwords, or OTP codes. Portal features and registration steps may change.</p></div>
+
+        <section id="what-is">
+          <h2>What Is GoG ePay Services?</h2>
+          <p>GoG ePay Services is an electronic payslip service associated with the Government of Ghana payroll system. The Controller and Accountant-General’s Department (CAGD) oversees government payroll administration and has introduced an upgraded electronic payslip system for eligible public sector employees.</p>
+          <p>The service provides a digital way to access salary information using an internet-connected phone or computer. Depending on the account and features available, employees may be able to review salary statements, earnings, deductions, and other payroll details.</p>
+          <p>The terms <strong>GoG payslip</strong>, <strong>GoG ePayslip</strong>, and <strong>GoG ePay Services</strong> are commonly used when discussing this electronic salary information service.</p>
+        </section>
+
+        <section id="login">
+          <h2>How to Access the GoG Payslip Login Portal</h2>
+          <p>Start by opening the current GoG ePay Services portal. Confirm that you are on the correct website before entering personal or employment information.</p>
+          <ol class="step-list">
+            <li>Open a trusted web browser on your phone or computer.</li>
+            <li>Visit the current GoG ePay Services login portal.</li>
+            <li>Enter the registered employee and account information requested.</li>
+            <li>Complete any security or verification steps shown on the page.</li>
+            <li>Open your dashboard after your details have been accepted.</li>
+            <li>Navigate to the payslip section and choose the relevant pay period.</li>
+          </ol>
+          <div class="callout"><strong>Security tip:</strong> Do not enter your login details on unfamiliar websites or share your password or one-time password with anyone claiming to provide account support.</div>
+        </section>
+
+        <section id="register">
+          <h2>How to Register for GoG ePay Services</h2>
+          <p>Employees who have not registered may need to create an account before accessing their electronic payslips. Requirements depend on the current system and the employee’s payroll record. The upgraded process includes employee information and Ghana Card or NIA verification.</p>
+          <h3>1. Open the current portal</h3>
+          <p>Visit the current GoG ePay Services portal and find the registration option. Read the on-screen instructions before starting.</p>
+          <h3>2. Enter your employee details</h3>
+          <p>Provide your employee number and the other requested employment information. Enter the details accurately so the system can locate the correct payroll record.</p>
+          <h3>3. Complete identity and phone verification</h3>
+          <p>Follow the Ghana Card verification instructions and confirm your phone number when required. A one-time password (OTP) may be sent to verify the number. Never share this code with another person.</p>
+          <h3>4. Create your account credentials</h3>
+          <p>Create a secure password and set up the security question or other recovery details requested by the portal. Review your information before submitting the registration form.</p>
+        </section>
+
+        <section id="check-payslip">
+          <h2>How to Check and Download Your GoG ePayslip</h2>
+          <p>After signing in, open the payslip section on your dashboard. The available records and download options may vary depending on your account and payroll period.</p>
+          <div class="feature-grid">
+            <div class="feature"><strong>Basic salary and allowances</strong><p>Review your main salary amount and any applicable additional payments.</p></div>
+            <div class="feature"><strong>Deductions</strong><p>Check the deductions and payroll adjustments listed for the selected period.</p></div>
+            <div class="feature"><strong>Net salary</strong><p>Review the amount remaining after applicable deductions are applied.</p></div>
+            <div class="feature"><strong>Download or print</strong><p>If the portal offers the option, save a copy for your personal records.</p></div>
+          </div>
+          <p>Select the correct month and year, open the relevant statement, and check the information carefully. Store downloaded payslips securely because they contain confidential employment and financial details.</p>
+          <p>If an expected payslip is missing, confirm the selected period and contact your payroll office if the record remains unavailable.</p>
+        </section>
+
+        <section id="salary">
+          <h2>Understanding Salary Information on Your Payslip</h2>
+          <p>Reviewing a payslip regularly helps you understand how your monthly salary is calculated.</p>
+          <ul>
+            <li><strong>Basic salary:</strong> The main salary amount associated with your position and applicable pay structure.</li>
+            <li><strong>Allowances:</strong> Additional payments that may apply according to employment terms and eligibility.</li>
+            <li><strong>Deductions:</strong> Applicable taxes, pension contributions, and other authorized deductions.</li>
+            <li><strong>Net salary:</strong> The amount remaining after relevant deductions have been applied to earnings.</li>
+          </ul>
+          <p>Compare new figures with previous statements. If you notice an unexpected deduction or incorrect employment information, contact your HR or payroll department for clarification.</p>
+        </section>
+
+        <section id="recovery">
+          <h2>How to Recover Your GoG Payslip Login</h2>
+          <p>If you forget your password, start by opening the login page and selecting the available password recovery option. Follow the instructions and provide the employee or verification details requested by the portal.</p>
+          <p>Depending on the current recovery process, you may need to confirm your phone number or answer a security question set during registration.</p>
+          <h3>What if you do not receive the OTP?</h3>
+          <p>Check your mobile network and confirm that the registered phone number is correct. Wait briefly before requesting another code. If recovery still fails, contact the appropriate payroll office or official CAGD support channel.</p>
+        </section>
+
+        <section id="troubleshooting">
+          <h2>Common GoG Payslip Login Problems</h2>
+          <p>Login issues may result from incorrect details, incomplete registration, identity verification failures, browser problems, or temporary portal interruptions.</p>
+          <ul>
+            <li>Check that your employee details and password are correct.</li>
+            <li>Confirm that you have completed the required registration steps.</li>
+            <li>Make sure your internet connection is stable.</li>
+            <li>Refresh the page or try an updated browser.</li>
+            <li>Clear the browser cache if the page continues to behave unexpectedly.</li>
+            <li>Use the official recovery process if you cannot remember your password.</li>
+          </ul>
+          <p>If the issue continues, contact your payroll department or the official support channel. Avoid services that promise to unlock accounts in exchange for passwords or verification codes.</p>
+        </section>
+
+        <section id="mobile">
+          <h2>Can You Access GoG ePayslip on a Mobile Phone?</h2>
+          <p>Eligible employees can generally use a compatible mobile browser to access web-based payslip services, subject to the current portal’s requirements.</p>
+          <p>Open your browser, visit the correct portal, and sign in with your registered credentials. If you download a payslip, check your Downloads folder or the location where your browser saves files. You can keep the document for personal reference or print it when needed.</p>
+          <p>When using a shared device, do not save your password and remember to sign out after viewing your account.</p>
+        </section>
+
+        <section id="loan">
+          <h2>GoG ePayslip and Salary-Backed Loans</h2>
+          <p>Some payroll portals may provide features related to salary-backed loan verification, such as generating a mandate number. Availability depends on the current system and your account. If you need this feature, check the options displayed in the official portal and confirm the requirements with your bank or relevant payroll office.</p>
+          <p>Never share account credentials or OTP codes with a third party as part of a loan application.</p>
+        </section>
+
+        <section id="faqs">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item"><h3>What is the GoG ePayslip portal?</h3><p>It is an electronic service that gives eligible Government of Ghana employees access to payslip and payroll information.</p></div>
+          <div class="faq-item"><h3>How do I check my GoG payslip online?</h3><p>Open the current portal, sign in using your registered details, and select the relevant payslip period from your dashboard.</p></div>
+          <div class="faq-item"><h3>Can I download my electronic payslip?</h3><p>If a download option is available for your account, use it to save the payslip to your device for personal records.</p></div>
+          <div class="faq-item"><h3>What should I do if I forget my password?</h3><p>Use the password recovery option on the login page and complete the verification steps requested by the system.</p></div>
+          <div class="faq-item"><h3>Why is my payslip not showing?</h3><p>The selected period may not be available, or there may be an account or payroll record issue. Check the month and year, then contact your payroll office if needed.</p></div>
+          <div class="faq-item"><h3>Is the service available on mobile devices?</h3><p>A compatible phone and browser can generally access web-based payslip services, subject to the current portal’s requirements.</p></div>
+        </section>
+
+        <section id="blogs">
+          <h2>Conclusion</h2>
+          <p>GoG ePay Services offers eligible Government of Ghana employees a digital way to access electronic payslips and review salary information. Knowing how to register, log in, check monthly records, and recover an account can make the process easier.</p>
+          <p>Use the current portal, enter accurate employee information, and protect your login credentials. If your account cannot be verified or your salary details appear incorrect, contact CAGD or your designated payroll office for guidance. Reviewing your payslip regularly can help you keep track of earnings, deductions, and net salary.</p>
+        </section>
+      </article>
+
+      <aside class="toc" aria-label="Article contents">
+        <h3>On this page</h3>
+        <a href="#what-is">What Is GoG ePay Services?</a>
+        <a href="#login">GoG Payslip Login</a>
+        <a href="#register">Registration Guide</a>
+        <a href="#check-payslip">Check &amp; Download Payslip</a>
+        <a href="#salary">Salary Information</a>
+        <a href="#recovery">Reset Password</a>
+        <a href="#troubleshooting">Login Problems</a>
+        <a href="#mobile">Mobile Access</a>
+        <a href="#loan">Salary-Backed Loans</a>
+        <a href="#faqs">FAQs</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">GoG <span>ePayslip</span></div>
+        <p>A helpful guide to electronic payslip access, account registration, salary information, and common login issues for eligible Government of Ghana employees.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="#epay">GoG ePay</a>
+          <a href="#recovery">Reset Password</a>
+          <a href="#loan">EPayslip Loan</a>
+          <a href="#salary">Salary and Wages</a>
+        </div>
+      </div>
+      <div>
+        <h3>Information</h3>
+        <div class="footer-links">
+          <a href="#blogs">Blogs</a>
+          <a href="#faqs">Frequently Asked Questions</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#top">Back to Top ↑</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">© 2026 GoG ePayslip. Informational guide. Always confirm current login and account instructions through official CAGD channels.</div>
+  </footer>
+</body>
+</html>
